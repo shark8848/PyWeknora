@@ -1,0 +1,33 @@
+.header-logo .logo-image[data-v-9572df2b] {
+  width: 168px !important;
+}
+
+.aside_box .logo_box .logo {
+  width: 136px !important;
+}
+
+html[theme-mode="dark"] .header-logo .logo-image[data-v-9572df2b] {
+  filter: none !important;
+}
+
+html[theme-mode="dark"] .aside_box .logo_box .logo {
+  filter: none !important;
+}
+
+@media (max-width: 1024px) {
+  .header-logo .logo-image[data-v-9572df2b] {
+    width: 148px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-logo .logo-image[data-v-9572df2b] {
+    width: 132px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-logo .logo-image[data-v-9572df2b] {
+    width: 116px !important;
+  }
+}

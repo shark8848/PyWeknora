@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="112" viewBox="0 0 420 112" role="img" aria-label="PyWeKnora">
+  <defs>
+    <linearGradient id="pyweknora-gradient" x1="12" y1="12" x2="100" y2="100" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2563eb"/>
+      <stop offset="1" stop-color="#06b6d4"/>
+    </linearGradient>
+  </defs>
+  <rect x="8" y="8" width="96" height="96" rx="28" fill="url(#pyweknora-gradient)"/>
+  <text x="56" y="69" fill="#ffffff" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="43" font-weight="800" text-anchor="middle">Py</text>
+  <text x="124" y="72" fill="#10213f" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="48" font-weight="800" letter-spacing="-1.5">PyWeKnora</text>
+</svg>
