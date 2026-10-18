@@ -1,0 +1,1 @@
+function s(e,o){const t=o.trim().toLocaleLowerCase().split(/\s+/).filter(Boolean);if(!t.length)return!0;const r=`${e?.name??""} ${e?.description??""}`.toLocaleLowerCase();return t.every(n=>r.includes(n))}export{s as m};

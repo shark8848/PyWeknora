@@ -1,0 +1,1 @@
+const r="host";function i(t){return(t??"").trim()===r}function e(t){return{id:r,name:t,sandbox_type:"host",config:{},created_at:"",updated_at:""}}function o(t,n){return!t&&n}function a(t,n){return t?r:(n??"").trim()}export{r as H,e as a,o as h,i,a as m};

@@ -1,0 +1,169 @@
+[
+  {
+    "id": "rag-qa",
+    "i18n": {
+      "default": {
+        "label": "RAG Q&A",
+        "description": "Evidence-based retrieval over document chunks. Best for document or FAQ KBs without Wiki."
+      },
+      "zh-CN": {
+        "label": "RAG 问答",
+        "description": "基于文档分块的检索式问答，适合未启用 Wiki 的文档 / FAQ 知识库。"
+      },
+      "zh-TW": {
+        "label": "RAG 問答",
+        "description": "基於文件分塊的檢索式問答，適合未啟用 Wiki 的文件 / FAQ 知識庫。"
+      },
+      "ja-JP": {
+        "label": "RAG Q&A",
+        "description": "ドキュメントのチャンクに基づく根拠付きの検索型回答。Wikiを有効にしていないドキュメント/FAQナレッジベースに最適です。"
+      }
+    },
+    "config": {
+      "system_prompt_id": "progressive_rag_agent",
+      "temperature": 0.7,
+      "max_iterations": 30,
+      "allowed_tools": [
+        "search_knowledge",
+        "read_document",
+        "list_documents"
+      ],
+      "retain_retrieval_history": false,
+      "faq_priority_enabled": true,
+      "kb_selection_mode": "all"
+    }
+  },
+  {
+    "id": "wiki-qa",
+    "i18n": {
+      "default": {
+        "label": "Wiki Q&A",
+        "description": "Wiki-first answering: search, read and follow links across wiki pages. Requires a Wiki-enabled KB."
+      },
+      "zh-CN": {
+        "label": "Wiki 问答",
+        "description": "以 Wiki 为主的检索与图谱跳转回答，必须绑定已启用 Wiki 的知识库。"
+      },
+      "zh-TW": {
+        "label": "Wiki 問答",
+        "description": "以 Wiki 為主的檢索與圖譜跳轉回答，必須綁定已啟用 Wiki 的知識庫。"
+      },
+      "ja-JP": {
+        "label": "Wiki Q&A",
+        "description": "Wikiを主体とした回答。Wikiページを検索・閲覧し、リンクをたどります。Wikiを有効にしたナレッジベースが必要です。"
+      }
+    },
+    "config": {
+      "system_prompt_id": "wiki_researcher",
+      "temperature": 0.7,
+      "max_iterations": 30,
+      "allowed_tools": [
+        "wiki_search",
+        "wiki_read_page",
+        "read_document",
+        "wiki_flag_issue"
+      ],
+      "retain_retrieval_history": false,
+      "kb_selection_mode": "all"
+    }
+  },
+  {
+    "id": "hybrid-rag-wiki",
+    "i18n": {
+      "default": {
+        "label": "Hybrid (Wiki + RAG)",
+        "description": "Uses wiki pages for navigation and context, then drills into chunks for precise quotes. Requires KBs with BOTH Wiki and chunk indexing."
+      },
+      "zh-CN": {
+        "label": "Wiki + RAG 混合",
+        "description": "先用 Wiki 建立导航和背景，再用分块检索精确引用。需绑定同时启用 Wiki 与向量/关键词索引的知识库。"
+      },
+      "zh-TW": {
+        "label": "Wiki + RAG 混合",
+        "description": "先用 Wiki 建立導覽和背景，再用分塊檢索精確引用。需綁定同時啟用 Wiki 與向量/關鍵詞索引的知識庫。"
+      },
+      "ja-JP": {
+        "label": "ハイブリッド（Wiki + RAG）",
+        "description": "Wikiページで全体像と背景を把握し、そこからチャンクを掘り下げて正確に引用します。Wikiとチャンクインデックスの両方を有効にしたナレッジベースが必要です。"
+      }
+    },
+    "config": {
+      "system_prompt_id": "hybrid_rag_wiki_agent",
+      "temperature": 0.7,
+      "max_iterations": 40,
+      "allowed_tools": [
+        "wiki_search",
+        "wiki_read_page",
+        "search_knowledge",
+        "read_document",
+        "list_documents",
+        "wiki_flag_issue"
+      ],
+      "retain_retrieval_history": false,
+      "faq_priority_enabled": true,
+      "kb_selection_mode": "all"
+    }
+  },
+  {
+    "id": "data-analysis",
+    "i18n": {
+      "default": {
+        "label": "Data Analysis",
+        "description": "SQL queries and statistics over tabular files (CSV / Excel). Pair with a KB that holds data files."
+      },
+      "zh-CN": {
+        "label": "数据分析",
+        "description": "对 CSV / Excel 等表格文件执行 SQL 查询和统计分析。请绑定包含数据文件的知识库。"
+      },
+      "zh-TW": {
+        "label": "數據分析",
+        "description": "對 CSV / Excel 等表格檔案執行 SQL 查詢和統計分析。請綁定包含數據檔案的知識庫。"
+      },
+      "ja-JP": {
+        "label": "データ分析",
+        "description": "表形式ファイル（CSV/Excel）に対するSQLクエリと統計分析。データファイルを含むナレッジベースと組み合わせてください。"
+      }
+    },
+    "config": {
+      "system_prompt_id": "data_analyst",
+      "temperature": 0.3,
+      "max_iterations": 30,
+      "allowed_tools": [
+        "data_schema",
+        "data_analysis"
+      ],
+      "web_search_enabled": false,
+      "supported_file_types": [
+        "csv",
+        "xlsx"
+      ],
+      "kb_selection_mode": "all"
+    },
+    "kb_filter": {
+      "none_of": [
+        "faq"
+      ]
+    }
+  },
+  {
+    "id": "custom",
+    "i18n": {
+      "default": {
+        "label": "Custom",
+        "description": "Full control. Manually pick tools, prompt and KB scope."
+      },
+      "zh-CN": {
+        "label": "自定义",
+        "description": "完全自定义：自行选择工具、提示词和知识库。"
+      },
+      "zh-TW": {
+        "label": "自訂",
+        "description": "完全自訂：自行選擇工具、提示詞和知識庫。"
+      },
+      "ja-JP": {
+        "label": "カスタム",
+        "description": "完全に自由に設定。ツール、プロンプト、ナレッジベースの範囲を手動で選択します。"
+      }
+    }
+  }
+]

@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pyweknora"
+version = "0.8.2"
+description = "A Python implementation of the WeKnora knowledge management framework"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+dependencies = [
+  "fastapi>=0.110",
+  "uvicorn[standard]>=0.27",
+  "pydantic>=2.6",
+  "python-multipart>=0.0.9",
+  "Pillow>=10",
+  "cryptography>=42",
+  "pypdf>=5",
+  "redis>=5",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "httpx>=0.27"]
+
+[project.scripts]
+pyweknora = "app.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["app*"]
